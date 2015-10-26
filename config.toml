@@ -1,0 +1,6 @@
+baseurl = "http://jmfaleiro.com/blog"
+languageCode = "en-us"
+title = "Jose Faleiro"
+[permalinks]
+        page = "/:title/"
+        about = "/:filename/"                        

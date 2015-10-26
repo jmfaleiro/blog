@@ -1,0 +1,16 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ partial "header.html" .}}
+
+<h2>Index</h2>
+
+{{ range .Data.Pages }}
+
+<p>
+    {{ .Date.Format "02 Jan 2006" }}<br>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+</p>
+
+{{ end }}
+
+{{ partial "footer.html" . }} 
+

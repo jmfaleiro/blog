@@ -1,0 +1,62 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ $postlist := .Site.Pages }}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="author" content="Jose Faleiro" />
+	<link rel="stylesheet" type="text/css" href="/blog/css/1024px.css" title="1024px" media="screen,projection" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+	<title>Jose Faleiro's blog.</title>
+</head>
+<body>
+  <div id="wrap">
+    <p>
+      <h1><!--<p style="text-align:left;">-->
+          Jose M. Faleiro
+        <span style="float:right;">
+          <a href="http://jmfaleiro.com">[About]</a>
+          <a href="{{ $baseurl }}/index.html">[Posts]</a>
+
+    </h1>
+    <h3head>
+        Loosely coupled. Strongly immutable.
+    </h3head>
+    </p>
+      <hr>
+
+      <h2>  {{ .Date.Format "02 Jan 2006"}}<br><br>{{ .Title }}</h2>
+
+<div id="contentalt">
+  <p>
+    {{ .Content }}
+  </p>
+</div>
+
+{{ partial "disqus.html" }}
+
+
+<h3>Read more</h3>
+
+{{ range first 5 $postlist }}
+<p>
+  {{ .Date.Format "02 Jan 2006" }}<br>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+</p>
+{{ end }}
+<br>
+
+<div id="footer">
+  <p style="text-align:left;">
+    <a href="mailto:jose.faleiro@yale.edu">jose.faleiro@yale.edu</a>
+        <span style="float:right;">
+          <a href="http://twitter.com/jmfaleiro">@jmfaleiro</a>
+  </p>
+  <a href="{{ $baseurl }}index.xml">RSS</a>
+  
+</div>
+</body>
+</html>
+
