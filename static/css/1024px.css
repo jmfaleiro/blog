@@ -8,30 +8,37 @@ body {background-color:black; color:#404040; font:85%; font-family: 'Droid Sans'
 a {color:#43443c; font-weight:700; text-decoration:none;}
 a:hover {color:#f14e32;}
 a img {border:0;}
-p {margin:0 0 18px 10px;}
+p {margin:0 0 18px 0;}
 ul,ol,dl {font-size:0.9em; margin:2px 0 16px 35px;}
 ul ul,ol ol {margin:4px 0 4px 35px;}
 blockquote {border:1px solid #dadada; font-size:0.9em; margin:20px 10px; padding:8px;}
 blockquote p {margin:0;}
 
+spaced {word-spacing: 1em;}
 /*
 h1 {border-bottom:2px solid #dadada; color:#f14e32; font-size:2em; letter-spacing:-3px; margin:0 0 15px 10px;  padding:0 2px 10px 5px;}
 */
 /* Headers */
 h1 {color:#f14e32; font-size:2em; letter-spacing:-3px; margin:0 0 15px 10px;  padding:0 2px 10px 5px;}
 h1 a {color:##D00000; text-transform:none;}
-h2 {color:#f14e32; font-size:1.4em; letter-spacing:-1px; margin:0 0 15px 10px; padding:0 2px 2px 5px;}
-h3 {border-bottom:2px solid #dadada; color:#f14e32; font-size:1.2em; font-weight:700; margin:10px 0 8px; padding:1px 2px 2px 3px;}
-h3head {font-size:1.2em; font-weight:700; margin:10px 0 8px; padding:1px 2px 2px 3px;}
+h2 {color:#43443c; font-size:1.8em; line-height:1.4em;letter-spacing:-1px;}
+h3 {border-bottom:2px solid #dadada; font-size:1.2em; font-weight:700}
+h3head {color:#404040; font-size:1.2em; font-weight:700;}
 
 h1ul {border-bottom:2px solid #dadada; color:#f14e32; font-size:2em; letter-spacing:-3px; margin:0 0 15px 10px;  padding:0 2px 10px 5px;}
 
+date {color:gray; font-size:0.9em; line-height:0.1em; margin: 0px 0px; padding: -10px -10px}
 
 
 hr {2px solid #dadada; color:#f14e32;}
 
+#outer {color:#43443c; margin:0; padding:0; width:100vw; background-color:#ffffff}
+
 /* Main wrap */
-#wrap {color:#43443c;; margin:10px auto; padding:40px 100px; width:700px;background-color:#ffffff}
+#wrap {color:#43443c;; margin:auto auto; padding:10px 100px; width:700px; background-color:#ffffff}
+content {font-family:'Droid Serif', serif; line-height:1.3em;font-size:1.2em}
+content p {margin:0px 0px 2em 0px; }
+#contentalt {color:#43443c;; margin:auto auto; padding:10px 100px; width:700px; background-color:#ffffff}
 #header {margin:0;}
 #toplinks {font-size:0.9em; padding:5px 2px 2px 3px; text-align:right;}
 #toplinks a {color:gray;}
@@ -48,7 +55,7 @@ hr {2px solid #dadada; color:#f14e32;}
 
 /* Main content */
 #content {float:right; line-height:1.5em; margin:0 0; padding:0; text-align:left; width:750px;}
-#contentalt {font-family:'Droid Serif', serif; line-height:1.4em; font-size:18px}
+
 
 
 
@@ -82,7 +89,8 @@ clear:both;
 
 
 /* Footer */
-#footer {border-top:2px solid #dadada; clear:both; color:gray; font-size:0.9em; line-height:1.6em; margin:0 auto; padding:8px 0;}
+
+#footer {clear:both; margin:auto auto; padding:10px 100px; width:700px;color:gray; font-size:0.9em; line-height:1.6em; margin:0 auto; padding:8px 0;}
 #footer p {margin:0; padding:0;}
 #footer a {color:#808080;}
 #footer a:hover {color:#f14e32;}

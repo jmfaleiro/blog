@@ -1,0 +1,44 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ $postlist := .Site.Pages }}
+{{ $permalink := .Permalink }}
+{{ $disqus_id := .Params.disqus_identifier }}
+{{ $pages := .Data.Pages }}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="author" content="Jose Faleiro" />
+	<link rel="stylesheet" type="text/css" href="/blog/css/1024px.css" title="1024px" media="screen,projection" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+	<title>Jose Faleiro's blog.</title>
+</head>
+<body>
+  <div id="outer">
+    <div id="wrap">
+      <br>
+      <h3head><!--<p style="text-align:left;">-->
+        <a href="{{ $baseurl }}/index.html">Jose Faleiro's Blog</a>
+        <span style="float:right;">
+          <a href="{{ $baseurl }}index.xml">Subscribe</a> &nbsp;&nbsp;&nbsp;
+          <a href="http://jmfaleiro.com">About</a>
+      </h3head>
+    </div>
+    <hr>
+    <div id="wrap">
+      <br>
+      <h3head>Posts tagged with <it>[{{ .Title }}]<it></h3head>
+      <br><br>
+      {{ range $pages }}
+
+      <p>
+        <h3head><a href="{{ .Permalink }}">{{ .Title }}</a></h3head><br>
+        <date>{{ .Date.Format "02 Jan 2006"}} </date>
+      </p>
+
+      {{ end }}
+    </div>
+  </div>
+</body>
+</html>

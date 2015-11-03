@@ -1,15 +1,14 @@
 {{ $baseurl := .Site.BaseURL }}
 {{ partial "header.html" .}}
 
-<h2>Index</h2>
-
+<br><br>
 {{ range .Data.Pages }}
-
+{{ if eq .Type "post" }}
 <p>
-    {{ .Date.Format "02 Jan 2006" }}<br>
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
+  <h3head><a href="{{ .Permalink }}">{{ .Title }}</a></h3head><br>
+  <date>{{ .Date.Format "02 Jan 2006"}} </date>
 </p>
-
+{{ end }}
 {{ end }}
 
 {{ partial "footer.html" . }} 

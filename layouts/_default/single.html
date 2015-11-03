@@ -1,5 +1,9 @@
 {{ $baseurl := .Site.BaseURL }}
 {{ $postlist := .Site.Pages }}
+{{ $permalink := .Permalink }}
+{{ $disqus_id := .Params.disqus_identifier }}
+{{ $tags := .Params.tags }}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -11,52 +15,85 @@
 	  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
 	<title>Jose Faleiro's blog.</title>
 </head>
-<body>
+          <body>
+            <div id="outer">
   <div id="wrap">
-    <p>
-      <h1><!--<p style="text-align:left;">-->
-          Jose M. Faleiro
-        <span style="float:right;">
-          <a href="http://jmfaleiro.com">[About]</a>
-          <a href="{{ $baseurl }}/index.html">[Posts]</a>
+    <br>
+      <h3head><!--<p style="text-align:left;">-->
+          <a href="{{ $baseurl }}/index.html">Jose Faleiro | meta DB</a>
+          <span style="float:right;">
+            <spaced>
+            <a href="{{ $baseurl }}/index.xml">Subscribe</a>
+            <a href="{{ $baseurl }}/about">About</a>
+            </spaced>
 
-    </h1>
-    <h3head>
-        Loosely coupled. Strongly immutable.
     </h3head>
-    </p>
+
+      </div>
       <hr>
+        <div id="wrap">
 
-      <h2>  {{ .Date.Format "02 Jan 2006"}}<br><br>{{ .Title }}</h2>
 
-<div id="contentalt">
-  <p>
+          <h2>{{ .Title }}</h2>
+          {{ if eq .Type "post" }}
+          <date>{{ .Date.Format "02 Jan 2006"}} </date>
+
+  <br><br>
+  {{ end }}
+
+      <content>
     {{ .Content }}
-  </p>
-</div>
+      </content>
 
-{{ partial "disqus.html" }}
+      {{ if eq .Type "post" }}
+      {{ partial "about.html" }}
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//jfmetadb.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
-<h3>Read more</h3>
-
-{{ range first 5 $postlist }}
-<p>
-  {{ .Date.Format "02 Jan 2006" }}<br>
-  <a href="{{ .Permalink }}">{{ .Title }}</a>
-</p>
+      
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = '{{ .Permalink }}';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ .Params.disqus_identifier }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//jmfaleiro-blog.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">Comments powered by Disqus.</a></noscript><div id="disqus_thread"></div>
 {{ end }}
-<br>
 
-<div id="footer">
-  <p style="text-align:left;">
-    <a href="mailto:jose.faleiro@yale.edu">jose.faleiro@yale.edu</a>
-        <span style="float:right;">
-          <a href="http://twitter.com/jmfaleiro">@jmfaleiro</a>
-  </p>
-  <a href="{{ $baseurl }}index.xml">RSS</a>
-  
-</div>
-</body>
-</html>
+{{ partial "footer.html" }}
 
