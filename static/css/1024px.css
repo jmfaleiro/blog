@@ -9,8 +9,13 @@ a {color:#43443c; font-weight:700; text-decoration:none;}
 a:hover {color:#f14e32;}
 a img {border:0;}
 p {margin:0 0 18px 0;}
-ul,ol,dl {font-size:0.9em; margin:2px 0 16px 35px;}
-ul ul,ol ol {margin:4px 0 4px 35px;}
+/*ul,ol,dl {font-size:0.9em; margin:0px 0 20px 35px;}*/
+p + ul {
+    margin-top: -30px;
+}
+ul,ol,dl {font-size:0.9em; margin:2px 20px 20px 0px;}
+/*ul ul,ol ol {margin:0px 0 4px 35px;}*/
+/* li {list-style:none; margin:0 0 4px; padding:0;} */
 blockquote {border:1px solid #dadada; font-size:0.9em; margin:20px 10px; padding:8px;}
 blockquote p {margin:0;}
 
@@ -109,3 +114,12 @@ clear:both;
 .fade {color:#c8c8c8;}
 .gray {color:gray;}
 .photo {background:#fff; border:1px solid #bababa; margin:6px 18px 2px 5px; padding:2px;}
+
+sup, sub {
+vertical-align: baseline;
+position: relative;
+top: -0.4em;
+}
+sub {
+top: 0.4em;
+}

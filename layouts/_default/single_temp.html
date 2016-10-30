@@ -1,0 +1,73 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ $postlist := .Site.Pages }}
+{{ $permalink := .Permalink }}
+{{ $disqus_id := .Params.disqus_identifier }}
+{{ $tags := .Params.tags }}
+
+{{ partial "header.html" }}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="author" content="Jose Faleiro" />
+	<link rel="stylesheet" type="text/css" href="/blog/css/1024px.css" title="1024px" media="screen,projection" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	  <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+	<title>Jose Faleiro's blog.</title>
+</head>
+          <body>
+            <div id="outer">
+  <div id="wrap">
+    <br>
+      <h3head><!--<p style="text-align:left;">-->
+          <a href="{{ $baseurl }}/index.html">Jose Faleiro | meta DB</a>
+          <span style="float:right;">
+            <spaced>
+            <a href="{{ $baseurl }}/index.xml">Subscribe</a>
+            <a href="">About</a>
+            </spaced>
+
+    </h3head>
+
+      </div>
+      <hr>
+        <div id="wrap">
+  <h2>{{ .Title }}</h2>
+  <date>{{ .Date.Format "02 Jan 2006"}} </date>
+  <br><br>
+
+      <content>
+    {{ .Content }}
+</content>
+<br>
+      <h3head>About the author</h3head><br>
+      Jose Faleiro is a computer science PhD candidate at Yale
+      University.  His research is focussed on building performant and
+      robust large-scale concurrent systems. More information on his
+      research can be found on his <a href="http://jmfaleiro.com">home-page</a>.
+
+      <br><br>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    var disqus_config = function () {
+        this.page.url = '{{ .Permalink }}';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ .Params.disqus_identifier }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//jmfaleiro-blog.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">Comments powered by Disqus.</a></noscript><div id="disqus_thread"></div>
+
+{{ partial "footer.html" }}
+
